@@ -39,7 +39,7 @@
 	foreach ($tests as $k => $v){
 		foreach ($map as $k2 => $v2){
 			$out = call_user_func($v2, $v[1]);
-			$results["{$k2}||$k"] = $v[2];
+			$results["{$k2}||$k"] = $out;
 		}
 	}
 
@@ -71,12 +71,14 @@
 	# output any problems
 	#
 
+	if (false){
 	foreach ($tests as $k => $row){
-	#	echo "\n";
-	#	echo "TEST: {$row[0]}\n";
-	#	echo "EXPECT     : ".urlencode($row[2])."\n";
+		echo "\n";
+		echo "TEST: {$row[0]}\n";
+		echo "EXPECT     : ".urlencode($row[2])."\n";
 
-	#	foreach ($map as $k2 => $v2){
-	#		echo "$k2 : ".urlencode($results["$k2||$k"])."\n";
-	#	}
+		foreach ($map as $k2 => $v2){
+			echo "$k2 : ".urlencode($results["$k2||$k"])."\n";
+		}
+	}
 	}
