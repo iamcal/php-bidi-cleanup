@@ -82,3 +82,27 @@
 		}
 	}
 	}
+
+
+	#
+	# performance
+	#
+
+	echo "\n";
+	echo "Performance:\n";
+
+	$test_text = str_repeat("Hello {$lre}world{$pdf}. ", 1000)."{$pdf}";
+	$bytes = strlen($test_text);
+	$loops = 10;
+
+	foreach ($map as $k => $v){
+		$t0 = microtime(true);
+		for ($i=0; $i<$loops; $i++){
+			$out = call_user_func($v, $test_text);
+		}
+		$t1 = microtime(true);
+
+		$rate = number_format(round(($bytes * $loops) / ($t1 - $t0)));
+		echo "$k - $rate bytes per second\n";
+
+	}
