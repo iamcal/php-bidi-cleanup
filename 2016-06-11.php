@@ -17,7 +17,8 @@ function normalizeBidirectionalTextMarkers($graphemes)
     if (count($markers) === 0) {
         return $graphemes;
     }
-    $popDirectionalFormatting = "\u{202C}";
+    #$popDirectionalFormatting = "\u{202C}";
+    $popDirectionalFormatting = "\xE2\x80\xAC";
     $popDirectionFormattingLength = strlen($popDirectionalFormatting);
     $offset = $stack = 0;
     foreach ($markers as list(list($match, $markerPosition))) {
